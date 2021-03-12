@@ -1,7 +1,8 @@
 $(document).ready(function(){
-  scorrimento_dx()
-  scorrimento_sx()
-  // buttonslide()
+  scorrimento_dx();
+  scorrimento_sx();
+  keyboard();
+  buttonslide()
 });
 function scorrimento_dx() {
   var move_right = $('i.fa-angle-right');
@@ -37,16 +38,47 @@ function scorrimento_sx() {
     bottoni.eq(current_img).addClass('active');
   });
 }
-// function buttonslide() {
-//   var immagini = $('.images > img');
-//   var bottone = $('i.fa-circle');
-//   var bottoni = $('.nav i');
-//   current_img = 0;
-//   bottone.click(function() {
-//     immagini.eq(current_img).removeClass('active');
-//     bottoni.eq(current_img).removeClass('active');
-//
-//     immagini.eq(current_img).addClass('active');
-//     bottoni.eq(current_img).addClass('active');
-//   })
-// }
+function keyboard() {
+  $(document).keydown(function (e) {
+    if (e.which == 39) {
+      scorrimento_dx();
+      console.log('OK');
+    }
+    if (e.which == 37) {
+      scorrimento_sx();
+      console.log('ok2');
+    }
+  })
+  $(document).keypress(function (e) {
+    if (e.keyCode == 39) {
+      scorrimento_dx();
+      console.log('OK');
+    }
+    if (e.keyCode == 37) {
+      scorrimento_sx();
+      console.log('ok2');
+    }
+  })
+}
+
+function buttonslide() {
+  var immagini = $('.images > img');
+  var bottone = $('.nav i');
+  bottone.click(function() {
+    bottone.removeClass('active');
+    immagini.removeClass('active');
+    $(this).addClass('active');
+    if (bottone.eq(3).hasClass('active')) {
+      immagini.eq(3).addClass('active');
+    }
+    if (bottone.eq(2).hasClass('active')) {
+      immagini.eq(2).addClass('active');
+    }
+    if (bottone.eq(1).hasClass('active')) {
+      immagini.eq(1).addClass('active');
+    }
+    if (bottone.eq(0).hasClass('active')) {
+      immagini.eq(0).addClass('active');
+    }
+  })
+}
