@@ -4,6 +4,8 @@ $(document).ready(function(){
   keyboard();
   buttonslide()
 });
+
+
 function scorrimento_dx() {
   var move_right = $('i.fa-angle-right');
   var immagini = $('.images > img');
@@ -21,6 +23,8 @@ function scorrimento_dx() {
     bottoni.eq(current_img).addClass('active');
   })
 }
+
+
 function scorrimento_sx() {
   var move_left = $('i.fa-angle-left');
   var immagini = $('.images > img');
@@ -38,6 +42,8 @@ function scorrimento_sx() {
     bottoni.eq(current_img).addClass('active');
   });
 }
+
+
 function keyboard() {
   var move_left = $('i.fa-angle-left');
   var immagini = $('.images > img');
@@ -93,6 +99,7 @@ function keyboard() {
     }
   })
 }
+
 
 function buttonslide() {
   var immagini = $('.images > img');
